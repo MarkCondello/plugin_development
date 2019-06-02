@@ -33,6 +33,7 @@ function agsml_settings_link($links, $file){
 and takes the following parameters:
 register_setting( $option_group, $option_name, $sanitize_callback )*/
 function agsml_register_settings(){
+    //saves settings to the wp_options table
     register_setting('antelope_social_group', 'agsml_facebook');
     register_setting('antelope_social_group', 'agsml_twitter');
     register_setting('antelope_social_group', 'agsml_youtube');
@@ -47,34 +48,34 @@ function agsml_settings_page() {
         <form method="post" action="options.php">
             <?php settings_fields( 'antelope_social_group' ); ?>
             <div class="setting">
-                <p class="label_title"><?php _e('Facebook Profile URL:', 'agsml') ?></p>
+
+                <p class="label_title"><?php _e('Facebook Profile:', 'agsml') ?></p>
                 <p><label class="no_bold" for="agsml_facebook"><span class="slim">
-                <?php _e('Facebook URL', 'agsml') ?></span>
+                <?php _e('Enter URL to your Facebook profile.', 'agsml') ?></span>
                     <input name="agsml_facebook" type="text" id="agsml_facebook"
                 value="<?php form_option('agsml_facebook'); ?>" /></label></p>
-                <p class="desc"><?php _e('Enter URL to your Facebook profile.') ?></p>
+                <hr/>
 
                 <p class="label_title"><?php _e('Twitter Profile URL:', 'agsml') ?></p>
                 <p><label class="no_bold" for="agsml_twitter"><span class="slim">
-                <?php _e('Twitter URL', 'agsml') ?></span>
+                <?php _e('Enter the URL to your Twitter profile.') ?></span>
                     <input name="agsml_twitter" type="text" id="agsml_twitter"
                 value="<?php form_option('agsml_twitter'); ?>" /></label></p>
-                <p class="desc"><?php _e('Enter the URL to your Twitter profile.') ?></p>
+                 <hr/>
 
                 <p class="label_title"><?php _e('YouTube Profile URL:', 'agsml') ?></p>
                 <p><label class="no_bold" for="agsml_youtube"><span class="slim">
-                <?php _e('YouTube URL', 'agsml') ?></span>
+                <?php _e('Enter the URL to your YouTube profile.');?></span>
                     <input name="agsml_youtube" type="text" id="agsml_youtube"
                 value="<?php form_option('agsml_youtube'); ?>" /></label></p>
-                <p class="desc"><?php _e('Enter the URL to your YouTube profile.') ?></p>
+                 <hr/>
 
                 <p class="label_title"><?php _e('LinkedIn Profile URL:', 'agsml') ?></p>
                 <p><label class="no_bold" for="agsml_linkedin"><span class="slim">
-                <?php _e('LinkedIn URL', 'agsml') ?></span>
+                <?php _e('Enter the URL to your LinkedIn profile.', 'agsml')  ?></span>
                     <input name="agsml_linkedin" type="text" id="agsml_linkedin"
                 value="<?php form_option('agsml_linkedin'); ?>" /></label></p>
-                <p class="desc"><?php _e('Enter the URL to your LinkedIn profile.', 'agsml') ?>
-                </p>
+                <hr/>
 
                 <p class="setting">
                     <input type="submit" class="button-primary"
@@ -92,22 +93,13 @@ function agsml_enqueue_styles(){
 }
 add_action('wp_enqueue_scripts', 'agsml_enqueue_styles' );
 
-
 /* Register the widget */
 function agsml_register_widget() {
     register_widget( 'Antelope_Widget' );
 }
 
-
-
 class Antelope_Widget extends WP_Widget {
     public function __construct() {
-        //widget code than contains function logic
-/*         $widget_ops = array(
-            'classname' => 'agsml_widget',
-            'description' => __('Your social media links', 'agsml')
-        );
-        parent::__construct(false, $name = "AG Social Media Links", $widget_ops); */
         parent::__construct( 'Antelope_Widget', __('Antelope Widget', 'agsml'), array(
             'classname'   => 'agsml_widget',
             'description' => __('Your social media links', 'agsml'),
@@ -166,5 +158,4 @@ class Antelope_Widget extends WP_Widget {
 
 /* Load the widget */
 add_action('widgets_init', 'agsml_register_widget');
-
  ?>
