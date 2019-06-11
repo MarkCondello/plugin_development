@@ -48,7 +48,7 @@ register_deactivation_hook(__FILE__, 'myplugins_on_activation');
 //do stuff on deactivation
 function myplugins_on_deactivation(){
     //this die statement should be removed after testings
-    wp_die("The plugin is deactivate");
+    wp_die("The plugin is deactivated");
     //if user has privledges
     if(! current_user_can('activate_plugins')) return;
     flush_rewrite_rules();
