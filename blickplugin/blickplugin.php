@@ -1,9 +1,9 @@
 <?php 
 /*
-Plugin Name: MyPlugin
-Description: Welcome to MyPlugin.
-Plugin URI:  foo@foo.com
-Author:      MRC
+Plugin Name: BlickPlugin
+Description: Welcome to the Blick Plugin.
+Plugin URI:  blickcreative.com.au
+Author:      Blick Creative
 Version:     1.0
 License:     GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.txt
@@ -33,9 +33,8 @@ if(is_admin()){
     require_once plugin_dir_path(__FILE__) . 'settings-callbacks.php';
     require_once plugin_dir_path(__FILE__) . 'settings-register.php';
 }
-
 // default plugin option settings
-function myplugin_options_default() {
+function blickplugin_options_default() {
 	return array(
 		'custom_url'     => 'https://wordpress.org/',
 		'custom_title'   => 'Powered by WordPress',
@@ -46,9 +45,6 @@ function myplugin_options_default() {
 		'custom_scheme'  => 'default',
 	);
 }
-
-
-
 
 
 
