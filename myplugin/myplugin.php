@@ -27,14 +27,19 @@ if(! defined('ABSPATH')){
     exit;
 }
 
+ //if admin area
 if(is_admin()){
+	//include dependencies
     require_once plugin_dir_path(__FILE__) . 'admin/admin-menu.php';
     require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
     require_once plugin_dir_path(__FILE__) . 'admin/settings-validate.php';
 
     require_once plugin_dir_path(__FILE__) . 'settings-callbacks.php';
-    require_once plugin_dir_path(__FILE__) . 'settings-register.php';
+	require_once plugin_dir_path(__FILE__) . 'settings-register.php';
 }
+
+//include dependencies: admin and public
+require_once plugin_dir_path(__FILE__) . 'includes/core-functions.php';
 
 // default plugin option settings
 function myplugin_options_default() {
