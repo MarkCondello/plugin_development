@@ -27,6 +27,16 @@ function myplugin_register_settings() {
 		string   $page where options are displayed. Must match do_settings_sections() name.
 	);
 	*/
+	
+/* My test section start 
+	add_settings_section( 
+		'my_test_section', 
+		'MY TEST SECTION', 
+		'myplugin_callback_test_section_link', 
+		'myplugin'
+	);
+  My test section end */
+
 	add_settings_section( 
 		'myplugin_section_login', 
 		'Customize Login Page', 
@@ -39,7 +49,13 @@ function myplugin_register_settings() {
 		'Customize Admin Area', 
 		'myplugin_callback_section_admin', 
 		'myplugin'
-    );
+	);
+	
+	  // callback: login section
+/* 	function myplugin_callback_test_section_link() {
+        echo '<p>These settings do absolutely nothing yet.</p>';
+    } */
+
     
     // callback: login section
     function myplugin_callback_section_login() {
@@ -61,6 +77,18 @@ function myplugin_register_settings() {
 		array    $args = []
 	);
 	*/
+
+ /* My test section start  
+	add_settings_field(
+		'custom_link',
+		'Custom Link yo',
+		'myplugin_callback_field_text',
+		'myplugin',
+		'my_test_section',
+		[ 'id' => 'custom_link', 'label' => 'Custom link for no purpose' ]
+	);
+ My test section end */
+
 
 	add_settings_field(
 		'custom_url',

@@ -6,7 +6,7 @@ if(! defined('ABSPATH')){
 
 // callback: text field
 function myplugin_callback_field_text( $args ) {
-	// get plugin options, first parameter looks for register_settings second parameter, second paremter looks for fallbacks from myplugin_options_default method
+	// get plugin options, first parameter looks for register_settings second parameter, second parameter looks for fallbacks from myplugin_options_default method
 	$options = get_option( 'myplugin_options', myplugin_options_default() );
 	
 	$id    = isset( $args['id'] )    ? $args['id']    : '';

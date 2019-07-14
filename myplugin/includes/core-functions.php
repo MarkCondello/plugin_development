@@ -40,9 +40,7 @@ function myplugin_custom_login_styles() {
 	}
 	
 	if ( 'enable' === $styles ) {
-		
 		/*
-		
 		wp_enqueue_style( 
 			string           $handle, 
 			string           $src = '', 
@@ -50,7 +48,6 @@ function myplugin_custom_login_styles() {
 			string|bool|null $ver = false, 
 			string           $media = 'all' 
 		)
-		
 		wp_enqueue_script( 
 			string           $handle, 
 			string           $src = '', 
@@ -58,10 +55,8 @@ function myplugin_custom_login_styles() {
 			string|bool|null $ver = false, 
 			bool             $in_footer = false 
 		)
-		
 		*/
 		wp_enqueue_style( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/css/myplugin-login.css', array(), null, 'screen' );
-		
 		wp_enqueue_script( 'myplugin', plugin_dir_url( dirname( __FILE__ ) ) . 'public/js/myplugin-login.js', array(), null, true );
 	}
 	

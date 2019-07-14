@@ -11,7 +11,7 @@ function myplugin_add_sublevel_menu() {
 		string   $parent_slug,
 		string   $page_title,
 		string   $menu_title,
-		string   $capability,
+		string   $capability of user,
 		string   $menu_slug,
 		callable $function = ''
 	);
@@ -25,8 +25,8 @@ function myplugin_add_sublevel_menu() {
 		'myplugin',
 		'myplugin_display_settings_page'
 	);
-	
 }
+
 add_action( 'admin_menu', 'myplugin_add_sublevel_menu' );
 
 // add top-level administrative menu

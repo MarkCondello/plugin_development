@@ -14,7 +14,7 @@ function myplugin_display_settings_page() {
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 		<form action="options.php" method="post">
 			<?php
-			// output security fields
+			// output settings fields
 			settings_fields( 'myplugin_options' );
 			
 			// output setting sections
